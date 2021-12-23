@@ -13,44 +13,12 @@ export default function Signup() {
   const Profession = useRef();
   const email = useRef();
   const city = useRef();
-  const SERVER_URL = "http://127.0.0.1:8700/api/v1/";
 
-  // const handleSubmit = async (e) => {
-  //   console.log("trying to submit");
-  //   e.preventDefault();
-  //   // if()
-  if (password.current.value !== passwordConfirm.current.value) {
-    password.current.setCustomValidity("passwords dont match");
-  }
-  //   const newUser = {
-  //     name: name.current.value,
-  //     Age: Age.current.value,
-  //     email: email.current.value,
-  //     password: password.current.value,
-  //     passwordConfirm: passwordConfirm.current.value,
-  //     country: country.current.value,
-  //     city: city.current.value,
-  //     Profession: Profession.current.value,
-  //   };
-
-  //   console.log(newUser);
-
-  //   // const registerUser = async () => {
-
-  //   // };
-  //   try {
-  //     // const res = await axios.post(`${SERVER_URL}user/signup`, newUser);
-  //     const res = await axios.post(
-  //       "http://127.0.0.1:8700/api/v1/user/signup",
-  //       newUser
-  //     );
-  //     console.log(res.data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password.current.value !== passwordConfirm.current.value) {
+      password.current.setCustomValidity("passwords dont match");
+    }
     try {
       const newUser = {
         name: name.current.value,
@@ -62,44 +30,8 @@ export default function Signup() {
         city: city.current.value,
         Profession: Profession.current.value,
       };
-      // const reqBody = JSON.stringify(newUser);
-      // const res = await axios.post(
-      //   "https://jsonplaceholder.typicode.com/todos/1",
-      //   newUser
-      // );
-      // const res = await axios.get("http://127.0.0.1:8700/api/v1/expenses");
-      // const res = await axios.post(
-      //   "http://127.0.0.1:8700/api/v1/user/signup",
-      //   newUser
-      // );
-      // console.log(res.data);
-      // name: name.current.value.toString,
-      //     Age: Age.current.value,
-      //     email: email.current.value,
-      //     password: password.current.value,
-      //     passwordConfirm: passwordConfirm.current.value,
-      //     country: country.current.value,
-      //     city: city.current.value,
-      //     Profession: Profession.current.value,
 
       console.log(newUser);
-      // axios
-      //   .post("http://127.0.0.1:8700/api/v1/user/signup", {
-      //     ...newUser,
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (error) {
-      //     console.log("errror !!! ");
-      //     console.log(error);
-      //   });
-      // const res = await axios.post("https://reqres.in/api/users", {
-      //   name: "utasfcsfc",
-      //   job: "leader",
-      // });
-
-      // const res = await axios.get("http://127.0.0.1:8700/api/v1/expenses");
 
       const res = await axios.post(
         "http://127.0.0.1:8700/api/v1/user/signup",
@@ -120,19 +52,19 @@ export default function Signup() {
         </div>
         <form onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
-          {/* <label htmlFor="name">Name</label> */}
+
           <input type="text" placeholder="name" id="name" ref={name} />
           <input type="number" placeholder="Age" id="Age" ref={Age} />
-          {/* <label htmlFor="username">Username</label> */}
+
           <input type="text" placeholder="Email" id="username" ref={email} />
-          {/* <label htmlFor="password">Password</label> */}
+
           <input
             type="password"
             placeholder="Password"
             id="password"
             ref={password}
           />
-          {/* <label htmlFor="password">Confirm Password</label> */}
+
           <input
             type="password"
             placeholder="Confirm Password"
@@ -147,7 +79,6 @@ export default function Signup() {
           <button className="sign-up" type="submit">
             Sign Up
           </button>
-          {/* <p>Alreay a User ? </p> */}
 
           <Link to="/login">
             <button className="login">Login</button>
